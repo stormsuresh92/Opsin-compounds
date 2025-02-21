@@ -1,9 +1,14 @@
 import requests
-import json
 import csv
 
-# List of compound CIDs (Example: Aspirin (2244), Methanol (3123), Glucose (5793))
-cids = ["2244", "3123", "5793"]  
+# Read CID list from text file
+with open("cids.txt", "r") as file:
+    cids = [line.strip() for line in file.readlines() if line.strip().isdigit()]
+
+# Check if the CID list is not empty
+if not cids:
+    print("No valid CIDs found in 'cids.txt'.")
+    exit()
 
 # PubChem API URL for multiple compounds
 url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{','.join(cids)}/JSON"
