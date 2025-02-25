@@ -37,7 +37,7 @@ with open('opsin_compounds.csv', mode='w', newline='') as file:
             writer.writerow([compound_name, data['inchi'], data['stdinchi'], data['stdinchikey'], data['smiles']])
 
         except requests.exceptions.RequestException as e:
-            print(f"Error occurred while making the request for {compounds}: {e}")
+            #print(f"Error occurred while making the request for {compounds}: {e}")
             writer.writerow([compound_name, "N/A", "N/A", "N/A", "N/A"])
  
         except json.JSONDecodeError as e:
