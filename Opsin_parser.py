@@ -9,7 +9,7 @@ headers = {
     'accept-encoding': 'gzip, deflate, br, zstd',
     'accept-language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
     'connection': 'keep-alive',
-    'referer': 'https://opsin.ch.cam.ac.uk/',
+    'referer': 'https://www.ebi.ac.uk/',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
 }
 
@@ -25,7 +25,7 @@ with open('opsin_compounds.csv', mode='w', newline='') as file:
     writer.writerow(["Compound", "InChI", "Standard InChI", "Standard InChIKey", "SMILES"])
     
     for compounds in tqdm(compound_lists):
-        base_url = "https://opsin.ch.cam.ac.uk/opsin/"
+        base_url = "https://www.ebi.ac.uk/opsin/ws/"
         compound_name = compounds.strip()
         try:
             response = requests.get(base_url+compound_name, headers=headers, timeout=10)
